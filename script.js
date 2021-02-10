@@ -12,6 +12,7 @@ function staticLoadPlaces() {
         let obj = navigator.geolocation.getCurrentPosition();
         let la = obj.coords.latitude;
         let lo = obj.coords.longitude;
+        alert(`lat: ${la}, lng: ${lo}`);
         return [
             {
                 name: 'Pokèmon',
