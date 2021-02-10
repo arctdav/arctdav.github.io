@@ -8,41 +8,18 @@ window.onload = () => {
 };
 
 function staticLoadPlaces() {
-    if (navigator.geolocation) {
-        let obj = navigator.geolocation.getCurrentPosition(success);
-        return [
+    return [
             {
                 name: 'Pokèmon',
                 location: {
                     // decomment the following and add coordinates:
-                    lat: latitude,
-                    lng: longitude,
-                },
-            },
-        ];
-    } else { 
-        alert("Geolocation is not supported by this browser.");
-        return [
-            {
-                name: 'Pokèmon',
-                location: {
-                    // decomment the following and add coordinates:
-                    // lat: <your-latitude>,
-                    // lng: <your-longitude>,
+                    lat: 43.4307072,
+                    lng: -79.70815999999999,
                 },
             },
         ];
     }
-}
 
-function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-
-    // status.textContent = '';
-    // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    alert(`Latitude: ${latitude} °, Longitude: ${longitude} °`);
-  }
 
 var models = [
     {
