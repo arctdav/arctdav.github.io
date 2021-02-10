@@ -9,17 +9,14 @@ window.onload = () => {
 
 function staticLoadPlaces() {
     if (navigator.geolocation) {
-        let obj = navigator.geolocation.getCurrentPosition();
-        let la = obj.coords.latitude;
-        let lo = obj.coords.longitude;
-        alert(`lat: ${la}, lng: ${lo}`);
+        let obj = navigator.geolocation.getCurrentPosition(success);
         return [
             {
                 name: 'Pokèmon',
                 location: {
                     // decomment the following and add coordinates:
-                    lat: la,
-                    lng: lo,
+                    lat: latitude,
+                    lng: longitude,
                 },
             },
         ];
@@ -38,6 +35,14 @@ function staticLoadPlaces() {
     }
 }
 
+function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // status.textContent = '';
+    // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    alert(`Latitude: ${latitude} °, Longitude: ${longitude} °`);
+  }
 
 var models = [
     {
