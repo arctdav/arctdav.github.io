@@ -8,17 +8,35 @@ window.onload = () => {
 };
 
 function staticLoadPlaces() {
-    return [
-        {
-            name: 'Pokèmon',
-            location: {
-                // decomment the following and add coordinates:
-                // lat: <your-latitude>,
-                // lng: <your-longitude>,
+    if (navigator.geolocation) {
+        let obj = navigator.geolocation.getCurrentPosition();
+        let la = obj.coords.latitude;
+        let lo = obj.coords.longitude;
+        return [
+            {
+                name: 'Pokèmon',
+                location: {
+                    // decomment the following and add coordinates:
+                    lat: la,
+                    lng: lo,
+                },
             },
-        },
-    ];
+        ];
+    } else { 
+        alert("Geolocation is not supported by this browser.");
+        return [
+            {
+                name: 'Pokèmon',
+                location: {
+                    // decomment the following and add coordinates:
+                    // lat: <your-latitude>,
+                    // lng: <your-longitude>,
+                },
+            },
+        ];
+    }
 }
+
 
 var models = [
     {
